@@ -15,10 +15,10 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader, DistributedSampler
 
-import cora.datasets
+import cora.datasets as datasets
 import cora.util.misc as utils
 from cora.datasets import build_dataset, get_coco_api_from_dataset, DistributedWeightedSampler
-from engine import evaluate, train_one_epoch, lvis_evaluate
+from cora.engine import evaluate, train_one_epoch, lvis_evaluate
 from cora.models import build_model
 from timm.utils import get_state_dict
 
@@ -110,6 +110,9 @@ def get_args_parser():
     parser.add_argument('--nheads', default=8, type=int, help="Number of attention heads in the transformer attention")
     parser.add_argument('--num_queries', default=300, type=int, help="Number of query slots")
     parser.add_argument('--fix_reference_points', action='store_true')
+    parser.add_argument('--enable_mem_efficient_sdp', action='store_true')
+    parser.add_argument('--no_enable_flash_sdp', dest='enable_flash_sdp', action='store_false')
+    parser.add_argument('--no_enable_math_sdp', dest='enable_math_sdp', action='store_false')
 
     # * Segmentation
     parser.add_argument('--masks', action='store_true', help="Train segmentation head if the flag is provided")
@@ -182,6 +185,9 @@ def _load_checkpoint_for_ema(model_ema, checkpoint):
     model_ema._load_checkpoint(mem_file)
 
 def main(args):
+    torch.backends.cuda.enable_mem_efficient_sdp(args.enable_mem_efficient_sdp)
+    torch.backends.cuda.enable_flash_sdp(args.enable_flash_sdp)
+    torch.backends.cuda.enable_math_sdp(args.enable_math_sdp)
     utils.init_distributed_mode(args)
 
     if args.frozen_weights is not None:

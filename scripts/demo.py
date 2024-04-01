@@ -13,16 +13,18 @@ from PIL import Image
 import torch
 from torch.utils.data import DataLoader, DistributedSampler
 
-import datasets
+import cora.datasets
 import cora.util.misc as utils
 from cora.util.visualizer import COCOVisualizer
 from cora.datasets import build_dataset, get_coco_api_from_dataset
 from cora.datasets.coco import make_coco_transforms
 from cora.models import build_model
-from main import get_args_parser
+from cora.main import get_args_parser
 
 def main(args):
-
+    torch.backends.cuda.enable_mem_efficient_sdp(args.enable_mem_efficient_sdp)
+    torch.backends.cuda.enable_flash_sdp(args.enable_flash_sdp)
+    torch.backends.cuda.enable_math_sdp(args.enable_math_sdp)
     utils.init_distributed_mode(args)
 
     if args.frozen_weights is not None:

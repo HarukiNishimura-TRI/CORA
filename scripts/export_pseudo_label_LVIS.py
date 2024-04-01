@@ -22,7 +22,7 @@ from cora.util.visualizer import COCOVisualizer
 from cora.datasets import build_dataset, get_coco_api_from_dataset
 from cora.datasets.coco import make_coco_transforms
 from cora.models import build_model
-from main import get_args_parser
+from cora.main import get_args_parser
 from PIL import Image
 import cora.datasets.transforms as T
 from tqdm import tqdm
