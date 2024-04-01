@@ -1,7 +1,7 @@
 from collections import Counter
 import json
 import argparse
-from util import box_ops
+from cora.util import box_ops
 import torch
 
 parser = argparse.ArgumentParser("merge lvis annotation")

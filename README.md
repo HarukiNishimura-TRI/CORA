@@ -34,20 +34,15 @@ We propose CORA, a DETR-style framework for open-vocabulary detection (OVD) that
 
 ### Quick Start
 ```
-# environment
-conda create -n cora python=3.9.12
-conda activate cora
-conda install pytorch==1.12.0 torchvision==0.13.0 cudatoolkit=11.3 -c pytorch
-
 # cora
 git clone git@github.com:tgxs002/CORA.git
 cd CORA
 
 # other dependencies
 pip install -r requirements.txt
-
-# install detectron2
-Please install detectron2 as instructed in the official tutorial (https://detectron2.readthedocs.io/en/latest/tutorials/install.html). We use version==0.6 in our experiments.
+pip install -e .
+cd cora/models/ops
+pip install -e .
 
 ```
 
