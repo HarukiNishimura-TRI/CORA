@@ -126,7 +126,7 @@ condition_on_text = True
 condition_bottleneck = 128
 
 output_dir = ""  # path where to save, empty for no saving
-device = "cuda:1"  # device to use for training / testing. We must use cuda.
+device = "cuda"  # device to use for training / testing. We must use cuda.
 seed = 42
 resume = (
     "<path_to_checkpoint>"  # resume from checkpoint, empty for training from scratch
