@@ -21,10 +21,10 @@ from cora.util.misc import (
 )
 
 if __name__ == "__main__":
-    config_file = "R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.py"
-    region_prompt = "region_prompt_R50.pth"
-    output_dir = "R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit"
-    checkpoint_file = "COCO_RN50.pth.pth_best_RN50"
+    config_file = "R50x4_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.py"
+    region_prompt = "region_prompt_R50x4.pth"
+    output_dir = "R50x4_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit"
+    checkpoint_file = "COCO_RN50x4.pth.pth_one_epoch_after"
 
     args = Config.fromfile(
         os.path.join(os.path.dirname(cora.__file__), "..", "configs/COCO", config_file)
