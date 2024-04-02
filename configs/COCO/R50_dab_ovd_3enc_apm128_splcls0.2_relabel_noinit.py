@@ -62,7 +62,7 @@ no_efficient_pooling = False
 use_efficient_pe_proj = False
 text_dim = 1024
 add_gn = False
-bg_threshold = 1.0
+bg_threshold = -1.0
 class_oracle = False
 score_threshold = 2.0
 classifier_cache = ""
@@ -118,7 +118,7 @@ dataset_file = "coco"
 coco_path = "<path_to_coco_dataset>"
 lvis_path = ""
 label_map = False
-coco_panoptic_path = ""
+coco_panoptic_path = None
 remove_misclassified = True
 repeat_factor_sampling = False
 repeat_threshold = 0.001
@@ -126,13 +126,13 @@ condition_on_text = True
 condition_bottleneck = 128
 
 output_dir = ""  # path where to save, empty for no saving
-device = "cuda:0"  # device to use for training / testing. We must use cuda.
+device = "cuda:1"  # device to use for training / testing. We must use cuda.
 seed = 42
 resume = (
     "<path_to_checkpoint>"  # resume from checkpoint, empty for training from scratch
 )
 start_epoch = 0
-eval = False
+eval = True
 eval_target = False
 eval_every_epoch = 1
 save_every_epoch = 50
@@ -140,9 +140,10 @@ num_workers = 2
 debug = (
     False  # For debug only. It will perform only a few steps during trainig and val.
 )
-label_version = "RN50x4base"  # choices=['', 'RN50x4base', 'RN50x4base_coconames', 'RN50x4base_prev', 'RN50base', 'ori', 'custom']
+label_version = "RN50base"  # choices=['', 'RN50x4base', 'RN50x4base_coconames', 'RN50x4base_prev', 'RN50base', 'ori', 'custom']
 num_label_sampled = -1
 clip_aug = False
+aggressive_eval = False
 
 # distributed training parameters
 world_size = 1  # number of distributed processes

@@ -62,7 +62,7 @@ no_efficient_pooling = False
 use_efficient_pe_proj = False
 text_dim = 640
 add_gn = False
-bg_threshold = 1.0
+bg_threshold = -1.0
 class_oracle = False
 score_threshold = 2.0
 classifier_cache = ""
@@ -118,7 +118,7 @@ dataset_file = "coco"
 coco_path = "<path_to_coco_dataset>"
 lvis_path = ""
 label_map = False
-coco_panoptic_path = ""
+coco_panoptic_path = None
 remove_misclassified = True
 repeat_factor_sampling = False
 repeat_threshold = 0.001
@@ -132,7 +132,7 @@ resume = (
     "<path_to_checkpoint>"  # resume from checkpoint, empty for training from scratch
 )
 start_epoch = 0
-eval = False
+eval = True
 eval_target = False
 eval_every_epoch = 1
 save_every_epoch = 50
