@@ -24,11 +24,11 @@ fi
 
 if [ "$type" == 'local' ]; then
 
-  header="python -m torch.distributed.launch --nproc_per_node=${gpu} --use_env scripts/main.py "
+  header="python -m torch.distributed.launch --nproc_per_node=${gpu} --use_env cora/main.py "
 
 else
 
   header="srun --async --partition=$partition -n${gpu} --mpi=pmi2 --gres=gpu:$gpu --ntasks-per-node=${gpu} --quotatype=$quotatype \
-    --job-name=$exp --cpus-per-task=$ncpu --kill-on-bad-exit=1 -o $work_dir/phoenix-slurm-$now-%j.out python scripts/main.py "
+    --job-name=$exp --cpus-per-task=$ncpu --kill-on-bad-exit=1 -o $work_dir/phoenix-slurm-$now-%j.out python cora/main.py "
 
 fi

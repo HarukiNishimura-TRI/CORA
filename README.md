@@ -66,10 +66,10 @@ Checkpoints for LVIS, $\text{CORA}^+$ will be ready soon.
 Run the following command for evaluating the RN50 model:
 ```
 # if you are running locally
-bash configs/COCO/R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.sh test 8 local --resume /path/to/checkpoint.pth --eval
+bash configs/COCO/R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.sh test 3 local --resume /path/to/checkpoint.pth --eval
 
 # if you are running on a cluster with slurm scheduler
-bash configs/COCO/R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.sh test 8 slurm quota_type partition_name --resume /path/to/checkpoint.pth --eval
+bash configs/COCO/R50_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.sh test 3 slurm quota_type partition_name --resume /path/to/checkpoint.pth --eval
 
 ```
 If you are using slurm, please remember to replace quota_type and partition_name to your quota type and the partition you are using.
