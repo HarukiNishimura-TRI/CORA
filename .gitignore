@@ -140,7 +140,6 @@ data
 cora_server_backup
 cora_server_backup/*
 
-/cora/models/ops/src/*
 /cora/models/ops/build/*
 /cora/models/ops/MultiScaleDeformableAttention.egg-info/*
 /cora/models/ops/MultiScaleDeformableAttention.cpython-39-x86_64-linux-gnu.so
